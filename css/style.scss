@@ -1,0 +1,62 @@
+$theme_color: #1e1e1e;
+
+body {
+    background-color: $theme_color;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    padding-top: 12px;
+    box-sizing: border-box;
+}
+
+$button_wrapper_height: 58px;
+.button_wrapper {
+    display: flex;
+    gap: 12px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    align-items: center;
+    width: 100vw;
+    height: $button_wrapper_height;
+    background-color: $theme_color;
+    border-top: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+}
+
+.execute_button {
+    width: 80px;
+    height: 36px;
+    box-sizing: border-box;
+    font-weight: bold;
+    color: $theme_color;
+}
+
+#container {
+    width: 100%;
+    height: calc((100% - $button_wrapper_height) * 2 / 3);
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#console {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+    height: calc((100% - $button_wrapper_height)/3);
+    overflow: scroll;
+    background-color: $theme_color;
+    padding: 12px 20px;
+    box-sizing: border-box;
+}
+
+.console_log {
+    color: #D4D4D4;
+}
+
+.console_error {
+    color: #F14C4C;
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>My Desktop Editor</title>
+  </head>
+  <body>
+    <main>
+      <section id="container"></section>
+      <section class="button_wrapper">
+        <button id="run_button" class="execute_button">RUN</button>
+        <button id="clear_button" class="execute_button">CLEAR</button>
+        <button id="restore_button" class="execute_button">RESTORE</button>
+      </section>
+      <section id="console"></section>
+    </main>
+
+    <script src="./node_modules/monaco-editor/min/vs/loader.js"></script>
+    <script src="./renderer.js"></script>
+  </body>
+</html>

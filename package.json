@@ -1,0 +1,25 @@
+{
+  "name": "my-desktop-editor",
+  "version": "1.0.0",
+  "description": "\"desktop editor\"",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bigdragon0610/my_desktop_editor.git"
+  },
+  "author": "\"bigdragon0610\"",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bigdragon0610/my_desktop_editor/issues"
+  },
+  "homepage": "https://github.com/bigdragon0610/my_desktop_editor#readme",
+  "dependencies": {
+    "monaco-editor": "^0.34.0"
+  },
+  "devDependencies": {
+    "electron": "^20.2.0"
+  }
+}
