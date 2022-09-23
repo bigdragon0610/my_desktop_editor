@@ -2,6 +2,7 @@ require.config({ paths: { vs: "./node_modules/monaco-editor/min/vs" } });
 
 const editorContainer = document.getElementById("container");
 const consoleSection = document.getElementById("console");
+const runButton = document.getElementById("run_button");
 
 let editor = "";
 let prevEditorValue = 'console.log("Hello world!");\n';
@@ -18,11 +19,22 @@ require(["vs/editor/editor.main"], function () {
 
 // save changes
 document.addEventListener("keydown", (e) => {
+  // save
   if ((e.ctrlKey || e.metaKey) && e.key === "s") {
     e.preventDefault();
     prevEditorValue = editor.getValue();
   }
+  // run
+  if ((e.ctrlKey || e.metaKey) && e.key === "r") {
+    e.preventDefault();
+    runButton.click();
+  }
 });
+
+const runUserFunc = () => {
+  const editorValue = editor.getValue();
+  const userFunc = new Function("console", editorValue);
+};
 
 const restoreButton = document.getElementById("restore_button");
 restoreButton.addEventListener("click", () => {
@@ -55,7 +67,6 @@ const consoleClear = () => {
     clear: consoleClear,
   };
 
-  const runButton = document.getElementById("run_button");
   runButton.addEventListener("click", () => {
     const editorValue = editor.getValue();
     const userFunc = new Function("console", editorValue);
