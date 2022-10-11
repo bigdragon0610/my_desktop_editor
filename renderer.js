@@ -5,7 +5,7 @@ const consoleSection = document.getElementById("console");
 const runButton = document.getElementById("run_button");
 
 let editor = "";
-let prevEditorValue = 'console.log("Hello world!");\n';
+let prevEditorValue = "";
 require(["vs/editor/editor.main"], function () {
   editor = monaco.editor.create(editorContainer, {
     value: [prevEditorValue].join("\n"),
