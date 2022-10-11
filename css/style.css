@@ -48,6 +48,7 @@ main {
   background-color: #1e1e1e;
   padding: 12px 20px;
   box-sizing: border-box;
+  font-size: 14px;
 }
 
 .console_log {
