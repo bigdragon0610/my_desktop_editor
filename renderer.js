@@ -17,7 +17,9 @@ require(["vs/editor/editor.main"], function () {
   });
 });
 
-// save changes
+/**
+ * save changes
+ */
 document.addEventListener("keydown", (e) => {
   // save
   if ((e.ctrlKey || e.metaKey) && e.key === "s") {
@@ -31,17 +33,13 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-const runUserFunc = () => {
-  const editorValue = editor.getValue();
-  const userFunc = new Function("console", editorValue);
-};
-
 const restoreButton = document.getElementById("restore_button");
 restoreButton.addEventListener("click", () => {
   editor.setValue(prevEditorValue);
 });
 
 const consoleLog = (content) => {
+  content = htmlspecialchars(content);
   consoleSection.insertAdjacentHTML(
     "beforeend",
     `<p class="console_log">${content}</p>`
@@ -49,6 +47,7 @@ const consoleLog = (content) => {
 };
 
 const consoleError = (error) => {
+  error = htmlspecialchars(error);
   consoleSection.insertAdjacentHTML(
     "beforeend",
     `<p class="console_error">${error}</p>`
@@ -59,8 +58,19 @@ const consoleClear = () => {
   consoleSection.innerHTML = "";
 };
 
+const htmlspecialchars = (str) => {
+  return (str + "")
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+};
+
 {
-  // rewrite the standard "console" object for userFunc
+  /**
+   * rewrite the standard "console" object for userFunc
+   */
   const console = {
     log: consoleLog,
     error: consoleError,
